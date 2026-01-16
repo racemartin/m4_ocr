@@ -1017,6 +1017,7 @@ name = "m4-ocr"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "jupyterlab" },
     { name = "matplotlib" },
     { name = "numpy" },
     { name = "pandas" },
@@ -1047,6 +1048,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "jupyterlab", specifier = ">=4.5.2" },
     { name = "matplotlib", specifier = "<=3.10.0" },
     { name = "numpy", specifier = "==2.2.2" },
     { name = "pandas", specifier = ">=2.3.3" },

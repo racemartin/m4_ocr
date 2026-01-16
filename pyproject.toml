@@ -1,17 +1,17 @@
 # #############################################################################
 [project]
-name = "m4_ocr"
-version = "0.1.0"
-description = "Analyse des causes d'attrition chez TechNova Partners avec SHAP."
-authors = [{name = "Rafael CEREZO MARTIN", email = "rafael.cerezo.martin@icloud.com"}]
-license = {text = "MIT"}
-readme = "README.md"
+name            = "m4_ocr"
+version         = "0.1.0"
+description     = "Analyse des causes d'attrition chez TechNova Partners avec SHAP."
+authors         = [{name = "Rafael CEREZO MARTIN", email = "rafael.cerezo.martin@icloud.com"}]
+license         = {text = "MIT"}
+readme          = "README.md"
 requires-python = ">=3.12,<3.14"
 
 # #############################################################################
-# PRODUCTION DEPENDENCIES
-# Estas librerías son el núcleo del modelo para TechNova.
-# Instalación: uv sync
+# DÉPENDANCES DE PRODUCTION
+# Ces bibliothèques constituent le cœur du modèle pour TechNova.
+# Installation : uv sync
 # #############################################################################
 dependencies = [
     # Manipulation et analyse de données (Etape 1)
@@ -32,12 +32,13 @@ dependencies = [
     # Configuration et utilitaires
     "python-dotenv>=1.2.1",   # Gestion des variables d'environnement (.env)
     "tqdm>=4.67.1",           # Barres de progression pour le suivi des boucles
+    "jupyterlab>=4.5.2",      # Environnement de travail interactif
 ]
 
 # #############################################################################
-# DEVELOPPEMENT DEPENDENCIES
-# Herramientas para escribir código, diagnosticar y documentar.
-# Instalación: uv sync (incluidas por defecto)
+# DÉPENDANCES DE DÉVELOPPEMENT
+# Outils pour écrire le code, diagnostiquer et documenter.
+# Installation : uv sync (incluses par défaut)
 # #############################################################################
 [dependency-groups]
 dev = [
