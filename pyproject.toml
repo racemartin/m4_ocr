@@ -18,21 +18,19 @@ dependencies = [
     "pandas>=2.3.3",          # Manipulation de DataFrames (SIRH, Sondage, Eval)
     "numpy==2.2.2",           # Calcul numérique et tableaux multidimensionnels
     "scipy>=1.16.3",          # Algorithmes scientifiques et statistiques avancées
-
     # Machine Learning et statistiques (Etape 3 & 4)
     "scikit-learn>=1.7.2",    # Bibliothèque de machine learning classique (Classification)
     "statsmodels>=0.14.5",    # Modèles statistiques et tests d'hypothèses
     "xgboost>=2.1.4",         # Algorithme de boosting pour haute performance
     "shap>=0.46.0",           # Interprétabilité du modèle (Valeurs de Shapley)
-
     # Visualisation de données (Etape 1)
     "matplotlib<=3.10.0",     # Création de graphiques et visualisations de base
     "seaborn>=0.13.2",        # Visualisations statistiques de haut niveau (Insights RH)
-
     # Configuration et utilitaires
     "python-dotenv>=1.2.1",   # Gestion des variables d'environnement (.env)
     "tqdm>=4.67.1",           # Barres de progression pour le suivi des boucles
     "jupyterlab>=4.5.2",      # Environnement de travail interactif
+    "pyarrow>=22.0.0",
 ]
 
 # #############################################################################
