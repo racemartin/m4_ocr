@@ -1,0 +1,72 @@
+# #############################################################################
+[project]
+name = "m4_ocr"
+version = "0.1.0"
+description = "Analyse des causes d'attrition chez TechNova Partners avec SHAP."
+authors = [{name = "Rafael CEREZO MARTIN", email = "rafael.cerezo.martin@icloud.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+
+# #############################################################################
+# PRODUCTION DEPENDENCIES
+# Estas librerías son el núcleo del modelo para TechNova.
+# Instalación: uv sync
+# #############################################################################
+dependencies = [
+    # Manipulation et analyse de données (Etape 1)
+    "pandas>=2.3.3",          # Manipulation de DataFrames (SIRH, Sondage, Eval)
+    "numpy==2.2.2",           # Calcul numérique et tableaux multidimensionnels
+    "scipy>=1.16.3",          # Algorithmes scientifiques et statistiques avancées
+
+    # Machine Learning et statistiques (Etape 3 & 4)
+    "scikit-learn>=1.7.2",    # Bibliothèque de machine learning classique (Classification)
+    "statsmodels>=0.14.5",    # Modèles statistiques et tests d'hypothèses
+    "xgboost>=2.1.4",         # Algorithme de boosting pour haute performance
+    "shap>=0.46.0",           # Interprétabilité du modèle (Valeurs de Shapley)
+
+    # Visualisation de données (Etape 1)
+    "matplotlib<=3.10.0",     # Création de graphiques et visualisations de base
+    "seaborn>=0.13.2",        # Visualisations statistiques de haut niveau (Insights RH)
+
+    # Configuration et utilitaires
+    "python-dotenv>=1.2.1",   # Gestion des variables d'environnement (.env)
+    "tqdm>=4.67.1",           # Barres de progression pour le suivi des boucles
+]
+
+# #############################################################################
+# DEVELOPPEMENT DEPENDENCIES
+# Herramientas para escribir código, diagnosticar y documentar.
+# Instalación: uv sync (incluidas por defecto)
+# #############################################################################
+[dependency-groups]
+dev = [
+    # Analyse exploratoire et diagnostic (Etape 1 & 5)
+    "ydata-profiling>=4.18.0", # Génération automatique de rapports de données
+    "yellowbrick>=1.5",        # Visualisation diagnostique des erreurs du modèle
+    "tabulate>=0.9.0",         # Formatage de tables pour affichage console/markdown
+    "polars>=1.36.1",          # Traitement de données ultra-rapide (alternative pandas)
+
+    # Environnement Jupyter (Etape 1 à 5)
+    "jupyter>=1.1.1",          # Suite complète pour notebooks interactifs
+    "jupyterlab>=4.5.0",       # Interface moderne pour le développement notebooks
+    "ipykernel>=7.1.0",        # Noyau Python pour l'exécution dans Jupyter
+    "ipywidgets>=8.1.8",       # Composants interactifs pour notebooks
+
+    # Qualité de code et formatage (Bonnes pratiques)
+    "pre-commit>=4.5.0",       # Hooks Git pour vérifications automatiques (linting)
+    "black>=25.11.0",          # Formatage automatique de code selon la norme PEP 8
+    "flake8>=7.3.0",           # Vérification du style et détection d'erreurs de syntaxe
+]
+
+# #############################################################################
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.uv]
+managed = true
+package = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
