@@ -47,9 +47,9 @@ uv run python -m ydata_profiling --config src/data/config_eda.yaml
 | --- | --- | --- | --- | --- |
 | **1. EDA** | `01_RC_EDA_Nettoyage.ipynb` | Fusion & Nettoyage | RAW CSV | `interim/data_merged.csv` |
 | **2. FE** | `02_RC_Feature_Engineering.ipynb` | Encodage & Features | interim | `processed/data_final.csv` |
-| **3. MOD** | `03_RC_Modelisation.ipynb` | Entraînement XGBoost | processed | `models/V1/attrition_v1.joblib` |
-| **3. MOD** | `04_RC_Modelisation_V2.ipynb` | Entraînement XGBoost | processed | `models/V2/attrition_v1.pkl` |
-| **4. SHAP** | `05_RC_Interpretation_SHAP.ipynb` | **Causes du Turnover** | model | Reports/Figures |
+| **3. MOD** | `03_RC_Modelisation.ipynb` | Entraînement XGBoost | processed | `models/V1/model_v1.joblib` |
+| **4. MOD** | `04_RC_Modelisation_V2.ipynb` | Entraînement XGBoost | processed | `models/V2/model_v2.joblib` |
+| **5. SHAP** | `05_RC_Interpretation_SHAP.ipynb` | **Causes du Turnover** | model | Reports/Figures |
 
 ## 📝 Structure du projet
 
