@@ -31,6 +31,8 @@ dependencies = [
     "tqdm>=4.67.1",           # Barres de progression pour le suivi des boucles
     "jupyterlab>=4.5.2",      # Environnement de travail interactif
     "pyarrow>=22.0.0",
+    "catboost>=1.2.8",
+    "imbalanced-learn>=0.14.1",
 ]
 
 # #############################################################################
