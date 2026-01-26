@@ -51,6 +51,13 @@ uv run python -m ydata_profiling --config src/data/config_eda.yaml
 | **4. MOD** | `04_RC_Modelisation_V2.ipynb` | Entraînement Models | processed | `models/V2/model_v2.joblib` |
 | **5. SHAP** | `05_RC_Interpretation_SHAP.ipynb` | **Causes du Turnover** | model | Reports/Figures |
 
+### Mission facultative - Partie 2 - Identifiez les causes d'attrition au sein d'une ESN
+
+| Étape | Notebook | Focus | Entrée | Sortie |
+| --- | --- | --- | --- | --- |
+| **1. PSQL** | `P2_02_industrialisation_psql_ingestion.ipynb` | Fusion & Injection | RAW CSV | PSQL Tables (Public) |
+
+
 ## 📝 Structure du projet
 
 ```bash
