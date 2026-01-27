@@ -4,11 +4,15 @@
 # GLOBALS                                                                       #
 #################################################################################
 
-PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+#PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+PROJECT_DIR := .
+
 BUCKET = [OPTIONAL] your-bucket-for-syncing-data (do not include 's3://')
 PROFILE = default
 PROJECT_NAME = m4_ocr
-PYTHON_INTERPRETER = python3
+
+#PYTHON_INTERPRETER = python3
+PYTHON_INTERPRETER = uv run
 
 ifeq (,$(shell which conda))
 HAS_CONDA=False
@@ -16,15 +20,19 @@ else
 HAS_CONDA=True
 endif
 
+# Fuerza HAS_CONDA a False para evitar el error de 'which conda'
+HAS_CONDA = False
+
 #################################################################################
 # COMMANDS                                                                      #
 #################################################################################
 
 ## Install Python Dependencies
 requirements: test_environment
-	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
-	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
-
+	# $(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
+	# $(PYTHON_INTERPRETER) -m pip install -r requirements.txt
+    # Ya no necesitamos pip install porque usamos uv sync
+	uv sync
 ## Make Dataset
 data: requirements
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
@@ -80,7 +88,26 @@ test_environment:
 # PROJECT RULES                                                                 #
 #################################################################################
 
+## Make Dataset
+# data: requirements
+#	$(PYTHON_INTERPRETER) src/data/make_dataset.py
 
+## Transform raw data into features
+#features: data
+features: 
+	$(PYTHON_INTERPRETER) src/features/build_features.py
+
+## Generate predictive risk scores and views
+predict: features
+	$(PYTHON_INTERPRETER) src/models/predict_model.py
+
+## Run the complete pipeline
+all_pipeline: data features predict
+
+
+## TEST: 
+## PS C:\Users\Public\IAE_DELL\pra_dell\m4_ocr> uv run src/features/build_features.py
+## ✅ Ingeniería de características completada en la DB.
 
 #################################################################################
 # Self Documenting Commands                                                     #
